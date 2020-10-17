@@ -4,15 +4,15 @@ import {
   StyleSheet,
   Text,
   View,
-  KeyboardAvoidingView,
+  Animated,
 } from "react-native";
-//import Region from "../components/Region";
-import Markers from "../components/Markers";
 
-export default class GeneralMap extends Component {
+
+export default class AnimatedMarker extends Component {
   render() {
     return (
-     <Markers />
+      <View style={styles.container}>
+      </View>
     );
   }
 }
@@ -21,8 +21,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F5FCFF",
-  },
-  map: {
-    flex: 1,
   },
 });

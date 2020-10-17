@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import { ScrollView, StyleSheet, Text, View,KeyboardAvoidingView } from 'react-native';
-import LoginForm from './LoginForm';
+import LoginInput from "../components/LoginInput";
+import LoginButton from "../components/LoginButton";
 
 
 export default class Login extends Component {
@@ -10,7 +11,7 @@ export default class Login extends Component {
         <View style = {styles.headBackground}/>
         <KeyboardAvoidingView behavior={"position"}>
         <View>
-          <Text style={styles.logo}>findME</Text>
+          <Text style={styles.logo}>findMe</Text>
           <Text style={styles.logoDesc}>Find Location and Read Message</Text>
         </View>
       <ScrollView>
@@ -19,7 +20,24 @@ export default class Login extends Component {
         <Text style={styles.loginAreaDesc}> Enter Email or Phone Number 
         </Text>
 
-        <LoginForm/>
+        <Text style={styles.signInText}>Sign In</Text>
+        <LoginInput 
+        returnKeyType={"next"}
+        autoCapitalize="none" 
+        placeholder="Username"
+        onSubmitEditing={()=>this.passwordInput.focus()} />
+        <LoginInput
+        returnKeyType={"go"}
+        secureTextEntry={true} 
+        placeholder="Password" 
+        inputRef={input =>this.passwordInput = input  } />
+
+        <LoginButton 
+        textColor={"#f2f2f2"}
+        bgColor={"#1572de"}
+        text={"Sign In Now"} 
+        //onPress={() => console.log("Ask me later pressed")}
+        onPress={() => this.props.navigation.navigate('GeneralMapPage')}/>
 
         </View>
       </ScrollView>
